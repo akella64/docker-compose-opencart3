@@ -20,19 +20,18 @@ Follow the steps below to set up the OpenCart environment:
     
 2.  Create an `.env` file in the root of the cloned repository with the necessary configurations:
     
+ # Database config
+MYSQL_DATABASE=opencart_db
+MYSQL_USER=opencart_user
+MYSQL_PASSWORD=your_password
+MYSQL_ROOT_PASSWORD=your_root_password
+PHP_IDE_CONFIG=serverName=Docker`
 
-`
-   #Database config
-   MYSQL_DATABASE=opencart_db
-   MYSQL_USER=opencart_user
-   MYSQL_PASSWORD=your_password
-   MYSQL_ROOT_PASSWORD=your_root_password
-   PHP_IDE_CONFIG=serverName=Docker
-   #Site name (example: mysite.com)
-   SITE_NAME=localhost
-   #Using the site over
-   https NGINX_CONF_DIRECTORY=hosts
-`
+ # Site name (example: mysite.com)
+SITE_NAME=localhost`
+
+ # Using the site over https
+NGINX_CONF_DIRECTORY=hosts
 
 3.  Start the containers using Docker Compose:
 
