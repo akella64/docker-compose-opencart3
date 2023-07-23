@@ -1,0 +1,45 @@
+version: '3.1'
+services:
+    nginx:
+        image: nginx:latest
+        container_name: nginx
+        ports:
+            - "80:80"
+            #- "443:443"
+            #- "465:465"
+        volumes:
+            - ./${NGINX_CONF_DIRECTORY}:/etc/nginx/conf.d
+            - ./www:/var/www:z
+            - ./logs:/var/log/nginx
+            - ./www/html/.git:/var/www/html/.git:z
+           # - /etc/letsencrypt/live/${SITE_NAME}/fullchain.pem:/etc/nginx/certs/fullchain.pem:ro
+           # - /etc/letsencrypt/live/${SITE_NAME}/privkey.pem:/etc/nginx/certs/privkey.pem:ro
+        depends_on:
+            - php
+    php:
+        build: ./images/php
+        container_name: php-fpm
+        volumes:
+            - ./www:/var/www:z
+            - ./www/html/.git:/var/www/html/.git:z
+        environment:
+            PHP_IDE_CONFIG: ${PHP_IDE_CONFIG}
+    db:
+        image: mysql:5.7
+        container_name: db
+        restart: unless-stopped
+        ports:
+            - "3306:3306"
+        environment:
+            MYSQL_DATABASE: ${MYSQL_DATABASE}
+            MYSQL_USER: ${MYSQL_USER}
+            MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+            MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+        volumes:
+            - ./db:/var/lib/mysql 
+    adminer:
+        image: adminer
+        container_name: adminer
+        restart: unless-stopped
+        ports:
+            - 8080:8080

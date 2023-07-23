@@ -1,0 +1,12 @@
+# Database config
+MYSQL_DATABASE=
+MYSQL_USER=
+MYSQL_PASSWORD=
+MYSQL_ROOT_PASSWORD=
+PHP_IDE_CONFIG=serverName=Docker
+
+# Site name (example: mysite.com)
+SITE_NAME=localhost
+
+# Using the site over https
+NGINX_CONF_DIRECTORY=hosts

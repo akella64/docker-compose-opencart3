@@ -1,0 +1,30 @@
+# General
+/logs/**
+/www/**
+/www/html/*
+/www/html/*.*
+/www/html/.*  
+/db/**
+.env
+.devcontainer
+
+# Directories
+/node_modules/
+/.idea/
+/.vscode/
+/.gradle/
+/.cache/
+/.sass-cache/
+/.pytest_cache/
+/.pytest_cache/
+/.hg/
+/.svn/
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
