@@ -1,12 +1,15 @@
-# General
-/logs/**
-/www/**
+#General
+/db/*
+/www/*
 /www/html/*
-/www/html/*.*
-/www/html/.*  
-/db/**
+/logs/*
 .env
 .devcontainer
+
+!/db/.keep
+!/www/.keep
+!/www/html/.keep
+!/logs/.keep
 
 # Directories
 /node_modules/
