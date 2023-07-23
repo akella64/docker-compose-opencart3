@@ -1,13 +1,11 @@
 #General
 /db/*
-/www/*
 /www/html/*
 /logs/*
 .env
 .devcontainer
 
 !/db/.keep
-!/www/.keep
 !/www/html/.keep
 !/logs/.keep
 
